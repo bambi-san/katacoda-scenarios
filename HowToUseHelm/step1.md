@@ -5,17 +5,15 @@ Install Helm
 rm -rf /usr/bin/helm
 ```
 
-Helm v3.0をインストールする
-```
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+インストールスクリプトをダウンロードする
+`curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3`{{execute}}
 
-chmod 700 get_helm.sh
-./get_helm.sh
+実行権限付与`chmod 700 get_helm.sh`{{execute}}
 
-mv /usr/local/bin/helm /usr/bin/helm
+Helm v3のインストール`./get_helm.sh`{{execute}}
 
-helm version
-```
+パスが通ってるディレクトリに移動`mv /usr/local/bin/helm /usr/bin/helm`{{execute}}
 
+バージョン確認`helm version`{{execute}}
 
 Settings Helm
