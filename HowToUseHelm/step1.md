@@ -1,14 +1,10 @@
-Install Helm
+Helm v3をインストールする
+
+Helm v2とHelm v3では利用方法が大きく異なるため要注意。
+[参考(Helm2 からの変更点)](https://helm.sh/ja/docs/faq/#helm-2-%E3%81%8B%E3%82%89%E3%81%AE%E5%A4%89%E6%9B%B4%E7%82%B9)
 
 
-[Helmコマンドチートシート](https://helm.sh/docs/helm/helm/)
-
-旧バージョンのHelmコマンドを削除
-```
-rm -rf /usr/bin/helm
-```
-
-インストールスクリプトをダウンロードする
+Helm v3インストールスクリプトをダウンロードする
 `curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3`{{execute}}
 
 実行権限付与する
@@ -22,45 +18,4 @@ Helm v3をインストールする
 
 バージョン確認(Helm v3以上になってる)
 `helm version`{{execute}}
-
-
-Jenkinsのインストール（[参考](jenkins.io/doc/book/installing/kubernetes/#install-jenkins-with-helm-v3)）
-
-JenkinsのHelmChartリポジトリ追加
-`helm repo add jenkinsci https://charts.jenkins.io`{{execute}}
-
-リポジトリ更新
-`helm repo update`{{execute}}
-
-リポジトリ一覧表示(jenkincciが表示される)
-`helm repo list`{{execute}}
-
-インストール
-`helm install jenkinsci/jenkins`{{execute}}
-
-Jenkins公開設定
-
-service一覧表示
-`kubectl get service`{{execute}}
-
-ClisterIPをNodePortに変更する
-
-`kubectl edit service/{sesrvice名}`
-
-```
-  type: ClusterIP -> NodePort
-```
-
-変更後のservice一覧表示
-`kubectl get service`{{execute}}
-
-タブを開いて8080にバインドされているport番号を指定してアクセスしてみよう。
-
-
-
-
-
-
-
-
 

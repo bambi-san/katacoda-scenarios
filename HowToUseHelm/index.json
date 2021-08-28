@@ -6,11 +6,11 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1",
+        "title": "Step 1 Install Helm v3",
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "Step 2 Install Jenkins APP",
         "text": "step2.md"
       },
       {
