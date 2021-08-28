@@ -14,18 +14,10 @@ JenkinsのHelmChartリポジトリ追加
 jenkinsアプリケーションを`jenkins-app`という名前で`default`の`namespace`にインストールする
 `helm install jenkins-app jenkinsci/jenkins -n default`{{execute}}
 
-helm list
+`kubectl get pods -n default`{{execute}}でデプロイ結果を確認する。
 
-
-
-Jenkins公開設定
-
-service一覧表示
-`kubectl get service`{{execute}}
-
-ClisterIPをNodePortに変更する
-
-`kubectl edit service/{sesrvice名}`
+serviceのPortをNodePortに編集し、NodeのPortとserviceのPortをバインドする。
+`kubectl edit service/jenkins-app`{{execute}}
 
 ```
   type: ClusterIP -> NodePort
@@ -35,3 +27,8 @@ ClisterIPをNodePortに変更する
 `kubectl get service`{{execute}}
 
 タブを開いて8080にバインドされているport番号を指定してアクセスしてみよう。
+
+`helm install`コマンドによりインストールされたアプリケーションはHelm独自のリポジトリでバージョン管理が行われる。
+`helm list`{{execute}}コマンドでデプロイしたバージョン（Chart, AppVersion）を確認する。
+
+`helm uninstall jenkins-app`{{execute}} でアプリケーションをアンインストールする。
