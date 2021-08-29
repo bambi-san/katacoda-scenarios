@@ -39,14 +39,16 @@ helm chartの展開結果(manifest)を表示する（リリース名を`nginx`�
 今回はローカルで管理する。
 管理用ファイル（index.yaml）を生成する。
 
-`mkdir charts`{{execute}}
-`mv *.tgz charts/`{{execute}}
-`helm index charts`{{execute}}
+```
+mkdir charts
+mv *.tgz charts/
+helm repo index charts
+```{{execute}}
 
 `charts/index.yaml`にhelmのパッケージ管理情報が記載されている。
 
 インストールする
-`helm install nginx charts/app-1.1.0.tgz -n default`
+`helm install nginx charts/app-0.1.0.tgz -n default`{{copy}}
 
 適用後確認
 `helm list`{{execute}}
